@@ -1,4 +1,9 @@
 import os
 
-password = "admin_password123" 
-print(f"Tizimga kirish paroli: {password}")
+# Parol endi kod ichida emas, xavfsiz "seyf"dan olinadi
+password = os.getenv("MY_PASSWORD")
+
+if password:
+    print("Tizim xavfsiz ulandi.")
+else:
+    print("Xato: Parol topilmadi!")
