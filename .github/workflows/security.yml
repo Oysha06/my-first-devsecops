@@ -1,0 +1,14 @@
+name: Security Scan
+
+on: [push] # Kod har safar GitHub-ga yuklanganda (push) ishga tushadi
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Linux tizimida ishga tushadi
+    steps:
+      - uses: actions/checkout@v2 # Kodni skanerlash uchun oladi
+      
+      - name: Run Bandit (SAST scan)
+        run: |
+          pip install bandit
+          bandit -r . # Python kodni xavfsizlikka tekshiradi
